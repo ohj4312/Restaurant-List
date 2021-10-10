@@ -9,7 +9,7 @@ import org.springframework.util.MultiValueMap;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SearchImageReq {
+public class SearchImageReq { //open api 요청변수에 해당하는 것들
 
     private String query = "";
 
@@ -21,7 +21,7 @@ public class SearchImageReq {
 
     private String filter = "all";
 
-    public MultiValueMap<String, String> toMultiValueMap(){
+    public MultiValueMap<String, String> toMultiValueMap(){ //query parameter를 넣어서 미리 만들어두기 위함.
         var map = new LinkedMultiValueMap<String, String>();
 
         map.add("query",query);

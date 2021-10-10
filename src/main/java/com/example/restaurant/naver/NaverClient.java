@@ -15,9 +15,9 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Component
-public class NaverClient {
+public class NaverClient { //naver 이외의 open api이용시 interface를 두고 활용 가능
 
-    @Value("${naver.client.id}")
+    @Value("${naver.client.id}") //yaml에 설정한 내용을 찾아올 수 있다. (spring annotation)
     private String naverClientId;
 
     @Value("${naver.client.secret}")
@@ -36,7 +36,7 @@ public class NaverClient {
                 .encode()
                 .toUri();
 
-        var headers = new HttpHeaders();
+        var headers = new HttpHeaders(); //헤더에 필수값을 필요로 한다.
         headers.set("X-Naver-Client-Id", naverClientId);
         headers.set("X-Naver-Client-Secret", naverClientSecret);
         headers.setContentType(MediaType.APPLICATION_JSON);

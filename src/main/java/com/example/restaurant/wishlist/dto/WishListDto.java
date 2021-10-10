@@ -9,7 +9,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class WishListDto {
+public class WishListDto { //데이터 베이스에 entity가 변경되면 프론트단에서도 변수명을 변경해야 되는 영향이 생긴다.
+                            // 이러한 부분을 방지하기 위해 dto를 따로 두고 사용한다.
     private Integer index;
     private String title;                   // 음식명, 장소명
     private String category;                // 카테고리

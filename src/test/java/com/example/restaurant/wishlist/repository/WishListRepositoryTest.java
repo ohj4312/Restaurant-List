@@ -32,12 +32,12 @@ public class WishListRepositoryTest {
         var wishListEntity = create();
         var expected = wishListRepository.save(wishListEntity);
 
-        Assertions.assertNotNull(expected);
-        Assertions.assertEquals(1, expected.getIndex());
+        Assertions.assertNotNull(expected); //not null 인지 확인
+        Assertions.assertEquals(1, expected.getIndex()); //첫번째 인덱스를 가지고 있으면 정상적으로 테스트된것!
     }
 
     @Test
-    public void updateTest(){
+    public void updateTest(){ //save 시 이미 데이터가 있는 경우 update가 정상적으로 되는지 테스트
         var wishListEntity = create();
         var expected = wishListRepository.save(wishListEntity);
 
@@ -55,7 +55,7 @@ public class WishListRepositoryTest {
 
         var expected = wishListRepository.findById(1);
 
-        Assertions.assertEquals(true, expected.isPresent());
+        Assertions.assertEquals(true, expected.isPresent()); //isPresent는 java.util.Optional에 있는 메소드이다
         Assertions.assertEquals(1, expected.get().getIndex());
     }
 
@@ -68,11 +68,11 @@ public class WishListRepositoryTest {
 
         int count = wishListRepository.findAll().size();
 
-        Assertions.assertEquals(0, count);
+        Assertions.assertEquals(0, count); //데이터를 하나 저장했다가 지웠으니까 0개여야 된다.
     }
 
     @Test
-    public void listAllTest(){
+    public void listAllTest(){ //2개이상 저장할때를 생각한 테스트
         var wishListEntity1 = create();
         wishListRepository.save(wishListEntity1);
 

@@ -25,16 +25,16 @@ public class WishListService {
         searchLocalReq.setQuery(query);
         var searchLocalRes = naverClient.searchLocal(searchLocalReq);
 
-        if(searchLocalRes.getTotal() > 0){
+        if(searchLocalRes.getTotal() > 0){ //검색 결과가 있다면
             var localItem = searchLocalRes.getItems().stream().findFirst().get();
-            var imageQuery = localItem.getTitle().replaceAll("<[^>]*>","");
+            var imageQuery = localItem.getTitle().replaceAll("<[^>]*>",""); //정규식 활용(괄호제외)
             var searchImageReq = new SearchImageReq();
             searchImageReq.setQuery(imageQuery);
 
             // 이미지 검색
             var searchImageRes = naverClient.searchImage(searchImageReq);
 
-            if(searchImageRes.getTotal() > 0){
+            if(searchImageRes.getTotal() > 0){ //이미지가 있다면
                 var imageItem = searchImageRes.getItems().stream().findFirst().get();
 
                 // 결과를 리턴
@@ -59,7 +59,7 @@ public class WishListService {
     }
 
 
-    private WishListEntity dtoToEntity(WishListDto wishListDto){
+    private WishListEntity dtoToEntity(WishListDto wishListDto){ //dto를 entity로 만든다.
         var entity = new WishListEntity();
         entity.setIndex(wishListDto.getIndex());
         entity.setTitle(wishListDto.getTitle());
@@ -74,9 +74,9 @@ public class WishListService {
         return entity;
     }
 
-    private WishListDto entityToDto(WishListEntity wishListEntity){
+    private WishListDto entityToDto(WishListEntity wishListEntity){ //entity를 dto로 만든다.
         var dto = new WishListDto();
-        dto.setIndex(wishListEntity.getIndex());
+        dto.setIndex(wishListEntity.getIndex()); //자동으로 매칭해주는 라이브러리도 있다!(modelMapper)
         dto.setTitle(wishListEntity.getTitle());
         dto.setCategory(wishListEntity.getCategory());
         dto.setAddress(wishListEntity.getAddress());

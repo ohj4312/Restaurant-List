@@ -26,7 +26,7 @@ public class SearchLocalRes {
         private String title;
         private String link;
         private String description;
-        private String category;
+        private String category; //리턴된 결과를 디버깅해서 확인할때 api문서와 다르게 item하위로 들어온다.
         private String telephone;
         private String address;
         private String roadAddress;
