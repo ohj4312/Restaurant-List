@@ -12,5 +12,6 @@ sprint-boot 활용 맛집 리스트 만들기!
 
 
 ## 추가 기획 TodoList
-- 1009 : 오류 수정 및 테스트 마무리
-- 1010 : 
+- 회원 ( JWT / Spring Security 활용 ) 
+- DB ( JPA 활용 )
+- view 활용 UI 설계
